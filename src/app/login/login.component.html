@@ -1,0 +1,27 @@
+<div id="login">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Controle de Pagamentos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #loginForm [formGroup]="formGroup" (ngSubmit)="submit()">
+                <mat-form-field>
+                    <mat-label>Login</mat-label>
+                    <input matInput required formControlName="login">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Senha</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" required formControlName="password">
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <input type="submit" hidden />
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button id="btn-entrar" mat-flat-button color="primary" (click)="submit()">Entrar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

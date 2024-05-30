@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Adicionar música</h1>
+<mat-dialog-content>
+    <form #form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <mat-form-field>
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="titulo">
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Artista</mat-label>
+            <input matInput formControlName="artista">
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Ano</mat-label>
+            <input matInput type="number" max="2024" formControlName="ano">
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Álbum</mat-label>
+            <input matInput formControlName="album">
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Gênero</mat-label>
+            <input matInput formControlName="genero">
+          </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button (click)="submit()" color="primary" [disabled]="formGroup.invalid">Salvar</button>
+  <button mat-stroked-button [mat-dialog-close]="false">Cancelar</button>
+</mat-dialog-actions>

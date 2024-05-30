@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>{{ playlist ? "Criar" : "Atualizar" }} Playlist</h1>
+<mat-dialog-content>
+    <form #form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput required formControlName="nome">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Descrição</mat-label>
+                <input matInput type="text" required formControlName="descricao">
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button (click)="submit()" color="primary" [disabled]="formGroup.invalid">Salvar</button>
+  <button mat-stroked-button [mat-dialog-close]="false">Cancelar</button>
+</mat-dialog-actions>
